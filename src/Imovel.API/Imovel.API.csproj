@@ -8,4 +8,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Imovel.Data\Imovel.Data.csproj" />
+    <ProjectReference Include="..\Imovel.Domain\Imovel.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

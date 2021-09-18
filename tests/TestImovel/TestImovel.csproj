@@ -19,4 +19,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Imovel.API\Imovel.API.csproj" />
+    <ProjectReference Include="..\..\src\Imovel.Data\Imovel.Data.csproj" />
+    <ProjectReference Include="..\..\src\Imovel.Domain\Imovel.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
