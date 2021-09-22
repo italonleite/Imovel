@@ -8,6 +8,7 @@ namespace Imovel.Domain.Models
 {
     public class Address
     {
+        public Guid AddressId { get; set; }
         public string street { get; set; }
         public string city { get; set; }
         public string complement { get; set; }
