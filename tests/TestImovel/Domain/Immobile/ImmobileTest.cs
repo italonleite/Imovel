@@ -9,16 +9,19 @@ namespace TestImovel
         [Fact]
         public void Imovel_Tipo_DeveRetornarTipoComercial()
         {
-            var immobile = new Immobile(ImmobileType.COMMERCIAL);
+            var address = new Address();
+            var immobile = new Immobile(ImmobileType.COMMERCIAL, address);
 
             Assert.True(immobile.ImmobileType == ImmobileType.COMMERCIAL);
         }
         [Fact]
         public void Imovel_Tipo_NaoDeveSerTipoIndefinido()
         {
-            var exception =Assert.Throws<Exception>(() => new Immobile(ImmobileType.UNDEFINED));
+            var immobile = new Immobile(ImmobileType.UNDEFINED, new Address());
 
-            Assert.Equal("Deve ser definido um tipo de imóvel", exception.Message);
+            var exception =Assert.Throws<Exception>(() => immobile.ValidateImmobile(immobile));
+
+            Assert.Equal("Deve ser informado um tipo de imóvel", exception.Message);
         }
 
         [Fact]
@@ -28,6 +31,18 @@ namespace TestImovel
             var isDefined = Enum.IsDefined(typeof(ImmobileType), 3);
 
             Assert.False(isDefined);
+        }
+
+        [Fact]
+        public void Imovel_Criar_DeveTerEndereco()
+        {
+            var immobile = new Immobile(ImmobileType.COMMERCIAL, null);            
+
+            var exception = Assert.Throws<Exception>(() => immobile.ValidateImmobile(immobile));
+                        
+            Assert.Equal("Deve ser informado um endereço", exception.Message);
+
+
         }
     }
 }
