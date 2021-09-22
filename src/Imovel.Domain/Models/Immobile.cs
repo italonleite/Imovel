@@ -10,18 +10,20 @@ namespace Imovel.Domain.Models
     {
         public Guid ImmobileId { get; set; }
         public ImmobileType ImmobileType { get; set; }
+        public Address Address { get; }
 
-        public Immobile(ImmobileType immobileType)
+        public Immobile(ImmobileType immobileType, Address address)
         {
             
             ImmobileId = Guid.NewGuid();
             ImmobileType = immobileType;
-            Validar(immobileType);
+            Address = address;            
         }
 
-        private void Validar(ImmobileType immobileType)
+        public void ValidateImmobile(Immobile immobile)
         {
-            if (immobileType == ImmobileType.UNDEFINED) throw new Exception("Deve ser definido um tipo de imóvel");
-        }
+            if (immobile.Address is null) throw new Exception("Deve ser informado um endereço");
+            if (immobile.ImmobileType == ImmobileType.UNDEFINED) throw new Exception("Deve ser informado um tipo de imóvel");
+        }               
     }
 }
