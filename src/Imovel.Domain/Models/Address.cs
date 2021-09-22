@@ -15,6 +15,6 @@ namespace Imovel.Domain.Models
         public string district { get; set; }
         public string number { get; set; }
         public string state { get; set; }
-        public string zip { get; set; }        
+        public string zip { get; set; } 
     }
 }

@@ -10,8 +10,13 @@ namespace Imovel.Domain.Models
     {
         public Guid ImmobileId { get; set; }
         public ImmobileType ImmobileType { get; set; }
+        public Guid AddressId { get; set; }
         public Address Address { get; }
 
+        public Immobile()
+        {
+
+        }
         public Immobile(ImmobileType immobileType, Address address)
         {
             
