@@ -4,14 +4,16 @@ using Imovel.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Imovel.Data.Migrations
 {
     [DbContext(typeof(ImmobileDbContext))]
-    partial class ImmobileDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211024141432_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,32 +27,32 @@ namespace Imovel.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("City")
+                    b.Property<string>("city")
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Complement")
+                    b.Property<string>("complement")
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("District")
+                    b.Property<string>("district")
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Number")
+                    b.Property<string>("number")
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("State")
+                    b.Property<string>("state")
                         .HasColumnType("varchar(2)");
 
-                    b.Property<string>("Street")
+                    b.Property<string>("street")
                         .IsRequired()
                         .HasColumnType("varchar(200)");
 
-                    b.Property<string>("Zip")
+                    b.Property<string>("zip")
                         .IsRequired()
                         .HasColumnType("varchar(8)");
 
                     b.HasKey("AddressId");
 
-                    b.ToTable("Address");
+                    b.ToTable("Adresses");
                 });
 
             modelBuilder.Entity("Imovel.Domain.Models.Immobile", b =>
@@ -60,7 +62,8 @@ namespace Imovel.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("AddressId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("AddressId");
 
                     b.Property<string>("ImmobileType")
                         .IsRequired()

@@ -1,4 +1,7 @@
 using Imovel.Data.Context;
+using Imovel.Data.Repositories;
+using Imovel.Domain.Interfaces;
+using Imovel.Domain.Services.ImmobileService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,7 +30,8 @@ namespace Imovel.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<ImmobileService>();
+            services.AddScoped<IImmobileRepository, ImmobileRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -52,7 +56,7 @@ namespace Imovel.API
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers();               
             });
         }
     }

@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Imovel.Domain\Imovel.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
 </Project>

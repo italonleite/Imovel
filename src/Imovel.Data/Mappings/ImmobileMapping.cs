@@ -19,7 +19,9 @@ namespace Imovel.Data.Mappings
             builder.Property(i => i.ImmobileType)
                 .IsRequired()
                 .HasColumnType("varchar(30)");
-            builder.HasOne(i => i.Address).WithOne();              
+            builder.HasOne(i => i.Address)
+                .WithOne();
+                             
                   
 
 

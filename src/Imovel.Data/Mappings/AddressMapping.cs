@@ -15,18 +15,18 @@ namespace Imovel.Data.Mappings
         public void Configure(EntityTypeBuilder<Address> builder)
         {
             builder.HasKey(a => a.AddressId);
-            builder.Property(a => a.zip)
+            builder.Property(a => a.Zip)
                 .IsRequired()
                 .HasColumnType("varchar(8)");
-            builder.Property(a => a.street)
+            builder.Property(a => a.Street)
                 .IsRequired()
                 .HasColumnType("varchar(200)");
-            builder.Property(a => a.number).HasColumnType("varchar(5)");
-            builder.Property(a => a.complement).HasColumnType("varchar(50)");
-            builder.Property(a => a.district).HasColumnType("varchar(50)");
-            builder.Property(a => a.city).HasColumnType("varchar(50)");            
-            builder.Property(a => a.state).HasColumnType("varchar(2)");
-            builder.ToTable("Adresses");
+            builder.Property(a => a.Number).HasColumnType("varchar(10)");
+            builder.Property(a => a.Complement).HasColumnType("varchar(50)");
+            builder.Property(a => a.District).HasColumnType("varchar(50)");
+            builder.Property(a => a.City).HasColumnType("varchar(50)");            
+            builder.Property(a => a.State).HasColumnType("varchar(2)");            
+            builder.ToTable("Address");
         }
     }
 }
