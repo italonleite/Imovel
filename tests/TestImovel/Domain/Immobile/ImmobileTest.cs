@@ -15,11 +15,11 @@ namespace TestImovel
             Assert.True(immobile.ImmobileType == ImmobileType.COMMERCIAL);
         }
         [Fact]
-        public void Imovel_Tipo_NaoDeveSerTipoIndefinido()
+        public void Imovel_Tipo_Indefinido_DeveGerarExceception()
         {
             var immobile = new Immobile(ImmobileType.UNDEFINED, new Address());
 
-            var exception =Assert.Throws<Exception>(() => immobile.ValidateImmobile(immobile));
+            var exception = Assert.Throws<Exception>(() => immobile.ValidateImmobile(immobile));
 
             Assert.Equal("Deve ser informado um tipo de imóvel", exception.Message);
         }
@@ -34,7 +34,7 @@ namespace TestImovel
         }
 
         [Fact]
-        public void Imovel_Criar_DeveTerEndereco()
+        public void Imovel_Criar_ComEnderecoNullDeveGerarException()
         {
             var immobile = new Immobile(ImmobileType.COMMERCIAL, null);            
 

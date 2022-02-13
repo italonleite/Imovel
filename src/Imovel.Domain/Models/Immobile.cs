@@ -22,7 +22,7 @@ namespace Imovel.Domain.Models
             
             ImmobileId = Guid.NewGuid();
             ImmobileType = immobileType;
-            Address = new Address(address.AddressId, address.City, address.Complement, address.District, address.Number, address.State, address.State, address.Zip);             
+            Address = address != null ? new Address(address.AddressId, address.City, address.Complement, address.District, address.Number, address.State, address.State, address.Zip) : null;             
         }
 
         public void ValidateImmobile(Immobile immobile)
