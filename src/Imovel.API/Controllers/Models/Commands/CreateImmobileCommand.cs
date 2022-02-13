@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Imovel.API.Controllers.Models.Commands
 {
+    //teste
     public class CreateImmobileCommand
     {
         public ImmobileType ImmobileType { get; set; }
